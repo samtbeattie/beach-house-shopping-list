@@ -23,6 +23,13 @@ export interface ShoppingItem {
   purchased: boolean;
 }
 
+export interface FavouriteItem {
+  id: string;
+  name: string;
+  category: Category;
+  quantity: number;
+}
+
 export const SUGGESTED_ITEMS: { name: string; category: Category }[] = [
   { name: 'Sunscreen', category: 'Beach & Outdoor' },
   { name: 'Beach towels', category: 'Beach & Outdoor' },

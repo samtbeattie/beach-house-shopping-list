@@ -4,6 +4,8 @@ interface Props {
   item: ShoppingItemType;
   onToggle: (id: string) => void;
   onRemove: (id: string) => void;
+  isFavourite: boolean;
+  onToggleFavourite: (item: ShoppingItemType) => void;
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -15,7 +17,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Pantry': 'bg-orange-100 text-orange-800',
 };
 
-export function ShoppingItemRow({ item, onToggle, onRemove }: Props) {
+export function ShoppingItemRow({ item, onToggle, onRemove, isFavourite, onToggleFavourite }: Props) {
   return (
     <div
       className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${
@@ -43,6 +45,15 @@ export function ShoppingItemRow({ item, onToggle, onRemove }: Props) {
       <span className={`text-xs px-2 py-0.5 rounded-full ${CATEGORY_COLORS[item.category] ?? 'bg-gray-100 text-gray-600'}`}>
         {item.category}
       </span>
+      <button
+        onClick={() => onToggleFavourite(item)}
+        className={`transition-colors text-lg leading-none ${
+          isFavourite ? 'text-amber-400 hover:text-amber-300' : 'text-gray-300 hover:text-amber-400'
+        }`}
+        aria-label={isFavourite ? `Remove ${item.name} from favourites` : `Add ${item.name} to favourites`}
+      >
+        ★
+      </button>
       <button
         onClick={() => onRemove(item.id)}
         className="text-gray-300 hover:text-sunset-500 transition-colors text-lg leading-none"

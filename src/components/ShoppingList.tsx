@@ -6,9 +6,11 @@ interface Props {
   onToggle: (id: string) => void;
   onRemove: (id: string) => void;
   onClearPurchased: () => void;
+  favouriteNames: Set<string>;
+  onToggleFavourite: (item: ShoppingItem) => void;
 }
 
-export function ShoppingList({ items, onToggle, onRemove, onClearPurchased }: Props) {
+export function ShoppingList({ items, onToggle, onRemove, onClearPurchased, favouriteNames, onToggleFavourite }: Props) {
   const purchasedCount = items.filter((i) => i.purchased).length;
 
   if (items.length === 0) {
@@ -26,7 +28,7 @@ export function ShoppingList({ items, onToggle, onRemove, onClearPurchased }: Pr
   return (
     <div className="space-y-2">
       {unpurchased.map((item) => (
-        <ShoppingItemRow key={item.id} item={item} onToggle={onToggle} onRemove={onRemove} />
+        <ShoppingItemRow key={item.id} item={item} onToggle={onToggle} onRemove={onRemove} isFavourite={favouriteNames.has(item.name.toLowerCase())} onToggleFavourite={onToggleFavourite} />
       ))}
       {purchased.length > 0 && (
         <>
@@ -42,7 +44,7 @@ export function ShoppingList({ items, onToggle, onRemove, onClearPurchased }: Pr
             </button>
           </div>
           {purchased.map((item) => (
-            <ShoppingItemRow key={item.id} item={item} onToggle={onToggle} onRemove={onRemove} />
+            <ShoppingItemRow key={item.id} item={item} onToggle={onToggle} onRemove={onRemove} isFavourite={favouriteNames.has(item.name.toLowerCase())} onToggleFavourite={onToggleFavourite} />
           ))}
         </>
       )}

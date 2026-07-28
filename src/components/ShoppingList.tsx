@@ -15,7 +15,7 @@ export function ShoppingList({ items, onToggle, onRemove, onClearPurchased, favo
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-12 text-gray-400">
+      <div className="text-center py-12 text-neutral-400">
         <p className="text-4xl mb-2">🏖️</p>
         <p className="text-sm">Your list is empty. Add some items or pick from suggestions below!</p>
       </div>
@@ -33,12 +33,12 @@ export function ShoppingList({ items, onToggle, onRemove, onClearPurchased, favo
       {purchased.length > 0 && (
         <>
           <div className="flex items-center justify-between pt-3 pb-1">
-            <span className="text-xs text-gray-400 uppercase tracking-wide">
+            <span className="text-xs text-neutral-400 uppercase tracking-wide">
               Purchased ({purchasedCount})
             </span>
             <button
               onClick={onClearPurchased}
-              className="text-xs text-sunset-500 hover:text-sunset-400 transition-colors"
+              className="text-xs text-neutral-500 hover:text-black transition-colors"
             >
               Clear purchased
             </button>

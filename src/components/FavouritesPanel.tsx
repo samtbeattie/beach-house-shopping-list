@@ -14,26 +14,26 @@ export function FavouritesPanel({ favourites, existingItems, onAdd, onRemove }: 
 
   return (
     <div className="space-y-2">
-      <h3 className="text-xs text-gray-400 uppercase tracking-wide">Favourites</h3>
+      <h3 className="text-xs text-neutral-400 uppercase tracking-wide">Favourites</h3>
       <div className="flex flex-wrap gap-2">
         {favourites.map((item) => {
           const alreadyAdded = existingNames.has(item.name.toLowerCase());
           return (
-            <div key={item.id} className="flex items-center gap-1 bg-sand-50 border border-sand-200 rounded-full px-3 py-1.5">
+            <div key={item.id} className="flex items-center gap-1 bg-white border border-neutral-200 rounded-full px-3 py-1.5">
               <button
                 onClick={() => !alreadyAdded && onAdd(item.name, item.category, item.quantity)}
                 disabled={alreadyAdded}
                 className={`text-xs transition-colors ${
                   alreadyAdded
-                    ? 'text-gray-300 cursor-default'
-                    : 'text-gray-600 hover:text-ocean-500'
+                    ? 'text-neutral-300 cursor-default'
+                    : 'text-neutral-600 hover:text-black'
                 }`}
               >
                 ★ {item.name}
               </button>
               <button
                 onClick={() => onRemove(item.id)}
-                className="text-gray-300 hover:text-sunset-500 transition-colors text-sm leading-none ml-1"
+                className="text-neutral-300 hover:text-black transition-colors text-sm leading-none ml-1"
                 aria-label={`Remove ${item.name} from favourites`}
               >
                 &times;

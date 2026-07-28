@@ -16,13 +16,13 @@ export function SuggestedItems({ existingItems, onAdd }: Props) {
 
   return (
     <div className="space-y-2">
-      <h3 className="text-xs text-gray-400 uppercase tracking-wide">Quick Add Suggestions</h3>
+      <h3 className="text-xs text-neutral-400 uppercase tracking-wide">Quick Add Suggestions</h3>
       <div className="flex flex-wrap gap-2">
         {available.map((item) => (
           <button
             key={item.name}
             onClick={() => onAdd(item.name, item.category)}
-            className="text-xs bg-sand-50 border border-sand-200 text-gray-600 px-3 py-1.5 rounded-full hover:bg-ocean-400 hover:text-white hover:border-ocean-400 transition-colors"
+            className="text-xs bg-white border border-neutral-200 text-neutral-600 px-3 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black transition-colors"
           >
             + {item.name}
           </button>

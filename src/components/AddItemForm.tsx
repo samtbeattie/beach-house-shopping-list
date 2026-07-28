@@ -20,28 +20,28 @@ export function AddItemForm({ onAdd }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-4 space-y-3">
+    <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-neutral-200 p-4 space-y-3">
       <div className="flex gap-2">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Add an item..."
-          className="flex-1 border border-sand-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ocean-400"
+          className="flex-1 border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
         />
         <input
           type="number"
           value={quantity}
           onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
           min={1}
-          className="w-16 border border-sand-200 rounded-lg px-2 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-ocean-400"
+          className="w-16 border border-neutral-200 rounded-lg px-2 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-black"
         />
       </div>
       <div className="flex gap-2">
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value as Category)}
-          className="flex-1 border border-sand-200 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ocean-400"
+          className="flex-1 border border-neutral-200 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-black"
         >
           {CATEGORIES.map((cat) => (
             <option key={cat} value={cat}>{cat}</option>
@@ -49,7 +49,7 @@ export function AddItemForm({ onAdd }: Props) {
         </select>
         <button
           type="submit"
-          className="bg-ocean-500 hover:bg-ocean-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors"
+          className="bg-black hover:bg-neutral-800 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors"
         >
           Add
         </button>

@@ -13,8 +13,8 @@ export function CategoryFilter({ selected, onSelect }: Props) {
         onClick={() => onSelect(null)}
         className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
           selected === null
-            ? 'bg-ocean-500 text-white'
-            : 'bg-sand-100 text-gray-600 hover:bg-sand-200'
+            ? 'bg-black text-white'
+            : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
         }`}
       >
         All
@@ -25,8 +25,8 @@ export function CategoryFilter({ selected, onSelect }: Props) {
           onClick={() => onSelect(cat)}
           className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
             selected === cat
-              ? 'bg-ocean-500 text-white'
-              : 'bg-sand-100 text-gray-600 hover:bg-sand-200'
+              ? 'bg-black text-white'
+              : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
           }`}
         >
           {cat}

@@ -23,7 +23,7 @@ function App() {
   const purchasedCount = items.filter((i) => i.purchased).length;
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-neutral-50">
       <Header itemCount={items.length} purchasedCount={purchasedCount} />
       <main className="max-w-2xl mx-auto px-4 py-6 space-y-6">
         <AddItemForm onAdd={addItem} />
